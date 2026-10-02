@@ -1,0 +1,325 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #07111F;
+  --color-surface: #0B1728;
+  --color-elevated: #101F33;
+  --color-border: #1B3047;
+  --color-text-primary: #F3F7FA;
+  --color-text-secondary: #91A4B8;
+  --color-text-muted: #60758A;
+  --color-accent: #19C3E6;
+  --color-risk: #FF5C6C;
+  --color-warning: #F4B740;
+  --color-success: #36D399;
+  --color-info: #4DB6FF;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 15px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #07111F;
+  color: #F3F7FA;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.35;
+  color: #F3F7FA;
+  letter-spacing: -0.015em;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #07111F;
+}
+::-webkit-scrollbar-thumb {
+  background: #1B3047;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #19C3E6;
+}
+
+/* Typing cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Page enter animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.25s ease-out;
+}
+
+/* Chat message enter */
+.chat-message {
+  animation: fadeInUp 0.2s ease-out;
+}
+
+/* Alert slide in */
+@keyframes alert-slide-in {
+  from { transform: translateX(8px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.alert-slide-in {
+  animation: alert-slide-in 0.25s ease-out;
+}
+
+/* Live pulse - subtle, used very sparingly */
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.live-dot {
+  animation: live-pulse 2.5s ease-in-out infinite;
+}
+
+/* Recharts tooltip */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+.custom-tooltip {
+  background: #0B1728 !important;
+  border: 1px solid #1B3047 !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+}
+
+/* Surface card */
+.card {
+  background: #0B1728;
+  border: 1px solid #1B3047;
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+.card-elevated {
+  background: #101F33;
+  border: 1px solid #1B3047;
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+/* Typography Standards */
+.page-header-title {
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 700;
+  color: #F3F7FA;
+  letter-spacing: -0.02em;
+}
+
+.page-header-sub {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #91A4B8;
+  margin-top: 4px;
+}
+
+.section-header-title {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+  color: #F3F7FA;
+  letter-spacing: -0.01em;
+}
+
+.card-heading {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  color: #F3F7FA;
+}
+
+.kpi-stat-value {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 600;
+  color: #F3F7FA;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-stat-label {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #91A4B8;
+}
+
+.kpi-stat-context {
+  font-size: 12px;
+  line-height: 16px;
+  color: #60758A;
+  margin-top: 2px;
+}
+
+/* Risk badges */
+.badge-high {
+  background: rgba(255, 92, 108, 0.1);
+  border: 1px solid rgba(255, 92, 108, 0.3);
+  color: #FF5C6C;
+  padding: 3px 9px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-medium {
+  background: rgba(244, 183, 64, 0.1);
+  border: 1px solid rgba(244, 183, 64, 0.3);
+  color: #F4B740;
+  padding: 3px 9px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-low {
+  background: rgba(54, 211, 153, 0.1);
+  border: 1px solid rgba(54, 211, 153, 0.3);
+  color: #36D399;
+  padding: 3px 9px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Sidebar nav item */
+.sidebar-item {
+  transition: background 0.15s ease, color 0.15s ease;
+  position: relative;
+  border-radius: 8px;
+}
+
+.sidebar-item.active {
+  background: rgba(25, 195, 230, 0.08);
+  color: #19C3E6;
+}
+
+.sidebar-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: #19C3E6;
+  border-radius: 0 2px 2px 0;
+}
+
+.sidebar-item:not(.active):hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: #F3F7FA;
+}
+
+/* Tab underline */
+.tab-active {
+  position: relative;
+  color: #19C3E6;
+}
+
+.tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #19C3E6;
+  border-radius: 1px;
+}
+
+/* Knowledge graph canvas nodes */
+.kg-node {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kg-node:hover {
+  filter: brightness(1.2);
+}
+
+/* Heatmap cells */
+.heatmap-cell {
+  transition: transform 0.15s ease;
+  border-radius: 3px;
+}
+
+.heatmap-cell:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+/* Formation layer colors */
+.layer-sandstone { background: rgba(244, 183, 64, 0.15); border-left: 2px solid #F4B740; }
+.layer-shale { background: rgba(139, 92, 246, 0.15); border-left: 2px solid #8B5CF6; }
+.layer-limestone { background: rgba(25, 195, 230, 0.15); border-left: 2px solid #19C3E6; }
+.layer-basement { background: rgba(255, 92, 108, 0.15); border-left: 2px solid #FF5C6C; }
+
+/* Progress bar */
+.progress-bar {
+  border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading spinner */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: spin-slow 2s linear infinite;
+}
+
+/* Canvas */
+canvas {
+  display: block;
+}
+
+/* Risk meter fill */
+.risk-meter-fill {
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
